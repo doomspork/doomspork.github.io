@@ -30,7 +30,7 @@ var animatedHeader = (function() {
   }
 
   function scrollY() {
-    return window.pageYOffset || docElem.scrollTop;
+    return window.pageYOffset || header.scrollTop();
   }
 
   init();
