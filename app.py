@@ -2,8 +2,10 @@
 Basic Application
 """
 
+import json
 import os
-from envelopes import Envelope
+from envelopes import Envelope, GMailSMTP
+import envelopes.connstack
 from flask import Flask, jsonify, render_template, request, send_from_directory
 from flask.ext.assets import Environment
 from webassets.loaders import PythonLoader
@@ -18,6 +20,8 @@ bundles = PythonLoader('bundles').load_bundles()
 for name, bundle in bundles.items():
     assets.register(name, bundle)
 
+conn = GMailSMTP(login=os.environ.get('GMAIL_SMTP_LOGIN'),
+        password=os.environ.get('GMAIL_SMTP_PASSWORD'))
 
 @app.route('/')
 def home():
@@ -32,12 +36,9 @@ def contact_form():
             from_addr=(u'no-reply@seancallan.com', u'Contact'),
             to_addr=(u'sean@seancallan.com', u'Sean Callan'),
             subject=u'Website Contact',
-            text_body=request.get_json(force=True, silent=True))
+            text_body=json.dumps(request.form))
 
-    envelope.send('smtp.gmail.com',
-            login=os.environ.get('GMAIL_SMTP_LOGIN'),
-            password=os.environ.get('GMAIL_SMTP_PASSWORD'),
-            tls=True)
+    envelope.send(envelope)
     return jsonify({'status': 'OK'})
 
 
@@ -52,7 +53,7 @@ def serve_static(filename):
 
 @app.route('/robots.txt')
 def serve_robots():
-    """ Render robots.txt """
+    """ Serve robots.txt """
     return send_from_directory(app.static_folder, 'robots.txt')
 
 
@@ -69,5 +70,5 @@ def add_header(response):
 
 @app.errorhandler(404)
 def page_not_found(_):
-    """Custom 404 page."""
+    """ Render 404 page """
     return render_template('404.html'), 404
