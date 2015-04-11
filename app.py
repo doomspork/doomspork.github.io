@@ -16,7 +16,7 @@ app.config['SECRET_KEY'] = os.environ.get('SECRET_KEY', '')
 
 # Load and register assets bundles.
 bundles = PythonLoader('bundles').load_bundles()
-for name, bundle in bundles.iteritems():
+for name, bundle in bundles.items():
     assets.register(name, bundle)
 
 
