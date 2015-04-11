@@ -108,3 +108,5 @@ target/
 pyvenv.cfg
 pip-selfcheck.json
 
+# Webassets
+.webassets-cache/
