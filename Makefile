@@ -13,6 +13,8 @@ env:
 	make deps
 
 deps:
+	npm install -g uglifyjs coffee-script && \
+	pip install --upgrade pip && \
 	pip install -r requirements.txt
 
 clean:
