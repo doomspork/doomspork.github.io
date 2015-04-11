@@ -15,7 +15,7 @@ main_js = Bundle(
     'js/vendor/jquery-1.11.2.min.js',
     'js/vendor/jquery.easing.1.3.js',
     'js/vendor/bootstrap.js',
-    'js/animatedheader.js',
+    'js/animatedHeader.js',
     'js/site.js',
     Bundle(
         'js/*.coffee',
