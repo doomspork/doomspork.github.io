@@ -8,7 +8,6 @@ Session.vim
 .netrwhist
 *~
 
-
 ### OSX ###
 .DS_Store
 .AppleDouble
@@ -16,7 +15,6 @@ Session.vim
 
 # Icon must end with two \r
 Icon
-
 
 # Thumbnails
 ._*
@@ -35,7 +33,6 @@ Icon
 Network Trash Folder
 Temporary Items
 .apdisk
-
 
 ### Python ###
 # Byte-compiled / optimized / DLL files
@@ -96,7 +93,6 @@ docs/_build/
 # PyBuilder
 target/
 
-
 ### VirtualEnv ###
 # Virtualenv
 # http://iamzed.com/2009/05/07/a-primer-on-virtualenv/
@@ -110,3 +106,7 @@ pip-selfcheck.json
 
 # Webassets
 .webassets-cache/
+
+# Dependency directory
+# https://www.npmjs.org/doc/misc/npm-faq.html#should-i-check-my-node_modules-folder-into-git
+node_modules
