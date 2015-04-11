@@ -2,9 +2,10 @@
 
 import os
 
+from app import create_app
 from flask.ext.script import Manager, Server
 from flask.ext.script.commands import ShowUrls, Clean
-from app import create_app
+from waitress import serve
 
 # default to dev config because no one should use this in
 # production anyway
@@ -26,4 +27,4 @@ def make_shell_context():
     return dict(app=app)
 
 if __name__ == "__main__":
-    manager.run()
+    serve(manager)
