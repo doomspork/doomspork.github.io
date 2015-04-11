@@ -26,10 +26,19 @@ def home():
     return render_template('index.html')
 
 
+@app.route('/fonts/<path:filename>')
+@app.route('/images/<path:filename>')
+def serve_static(filename):
+    """ Serve up images  """
+    dir = request.path[1:].split('/')[0]
+    static_path = os.path.join(app.static_folder, dir)
+    return send_from_directory(static_path, filename)
+
+
 @app.route('/robots.txt')
-def static_from_root():
+def serve_robots():
     """ Render robots.txt """
-    return send_from_directory(app.static_folder, request.path[1:])
+    return send_from_directory(app.static_folder, 'robots.txt')
 
 
 @app.after_request
@@ -47,8 +56,3 @@ def add_header(response):
 def page_not_found(_):
     """Custom 404 page."""
     return render_template('404.html'), 404
-
-
-if __name__ == '__main__':
-    port = int(os.environ.get('PORT', 5000))
-    app.run(host='0.0.0.0', port=port)
