@@ -12,3 +12,4 @@ pytest==2.6.4
 
 # Server
 waitress==0.8.8
+newrelic
