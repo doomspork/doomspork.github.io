@@ -3,19 +3,17 @@ Basic Application
 """
 
 import os
-from flask import Flask, render_template, request, send_from_directory
+from envelopes import Envelope
+from flask import Flask, jsonify, render_template, request, send_from_directory
 from flask.ext.assets import Environment
 from webassets.loaders import PythonLoader
 
 app = Flask(__name__, static_folder='static')
 app.config['DEBUG'] = True
-assets = Environment(app)
-
-
 app.config['SECRET_KEY'] = os.environ.get('SECRET_KEY', '')
 
 
-# Load and register assets bundles.
+assets = Environment(app)
 bundles = PythonLoader('bundles').load_bundles()
 for name, bundle in bundles.items():
     assets.register(name, bundle)
@@ -25,6 +23,22 @@ for name, bundle in bundles.items():
 def home():
     """ Render index """
     return render_template('index.html')
+
+
+@app.route('/contact', methods=['POST'])
+def contact_form():
+    """ Handle contact """
+    envelope = Envelope(
+            from_addr=(u'no-reply@seancallan.com', u'Contact'),
+            to_addr=(u'sean@seancallan.com', u'Sean Callan'),
+            subject=u'Website Contact',
+            text_body=request.get_json(force=True, silent=True))
+
+    envelope.send('smtp.gmail.com',
+            login=os.environ.get('GMAIL_SMTP_LOGIN'),
+            password=os.environ.get('GMAIL_SMTP_PASSWORD'),
+            tls=True)
+    return jsonify({'status': 'OK'})
 
 
 @app.route('/fonts/<path:filename>')

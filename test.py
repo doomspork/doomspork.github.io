@@ -4,7 +4,8 @@
 
 import unittest
 from app import app
-
+from envelopes import Envelope
+from unittest.mock import patch
 
 class TestApp(unittest.TestCase):
     """ Test the index """
@@ -20,6 +21,16 @@ class TestApp(unittest.TestCase):
         self.assertTrue(request.data)
         self.assertEqual(request.status_code, 200)
         request.close()
+
+
+    def test_contact_form(self):
+        """ Test contact form """
+        with patch.object(Envelope, 'send', return_value=None) as mock_method:
+            request = self.app.post('/contact')
+            self.assertEqual(request.status_code, 200)
+            request.close()
+
+        mock_method.assert_called_once()
 
 
     def test_404_page(self):
