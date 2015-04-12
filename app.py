@@ -2,10 +2,9 @@
 Basic Application
 """
 
-import json
 import os
+import json
 from envelopes import Envelope, GMailSMTP
-import envelopes.connstack
 from flask import Flask, jsonify, render_template, request, send_from_directory
 from flask.ext.assets import Environment
 from webassets.loaders import PythonLoader
@@ -20,8 +19,9 @@ bundles = PythonLoader('bundles').load_bundles()
 for name, bundle in bundles.items():
     assets.register(name, bundle)
 
-conn = GMailSMTP(login=os.environ.get('GMAIL_SMTP_LOGIN'),
-        password=os.environ.get('GMAIL_SMTP_PASSWORD'))
+gmail = GMailSMTP(login=os.environ.get('GMAIL_SMTP_LOGIN'),
+                  password=os.environ.get('GMAIL_SMTP_PASSWORD'))
+
 
 @app.route('/')
 def home():
@@ -32,13 +32,12 @@ def home():
 @app.route('/contact', methods=['POST'])
 def contact_form():
     """ Handle contact """
-    envelope = Envelope(
-            from_addr=(u'no-reply@seancallan.com', u'Contact'),
-            to_addr=(u'sean@seancallan.com', u'Sean Callan'),
-            subject=u'Website Contact',
-            text_body=json.dumps(request.form))
+    mail = Envelope(from_addr=(u'sean@seancallan.com', u'Contact'),
+                    to_addr=(u'sean@seancallan.com', u'Sean Callan'),
+                    subject=u'Website Contact',
+                    text_body=json.dumps(request.form))
 
-    envelope.send(envelope)
+    gmail.send(mail)
     return jsonify({'status': 'OK'})
 
 
