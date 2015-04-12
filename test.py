@@ -49,9 +49,9 @@ class TestApp(unittest.TestCase):
         self.assertEqual(request.status_code, 200)
         request.close()
 
-    def test_image_request(self):
-        """ Test images """
-        request = self.app.get('/images/dod.png')
+    def test_resume_request(self):
+        """ Test fonts """
+        request = self.app.get('/files/sean.callan-resume.pdf')
         self.assertTrue(request.data)
         self.assertEqual(request.status_code, 200)
         request.close()
@@ -62,6 +62,14 @@ class TestApp(unittest.TestCase):
         self.assertTrue(request.data)
         self.assertEqual(request.status_code, 200)
         request.close()
+
+    def test_image_request(self):
+        """ Test images """
+        request = self.app.get('/images/dod.png')
+        self.assertTrue(request.data)
+        self.assertEqual(request.status_code, 200)
+        request.close()
+
 
 if __name__ == '__main__':
     unittest.main()
