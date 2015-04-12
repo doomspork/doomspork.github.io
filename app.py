@@ -40,6 +40,7 @@ def contact_form():
     return jsonify({'status': 'OK'})
 
 
+@app.route('/files/<path:filename>')
 @app.route('/fonts/<path:filename>')
 @app.route('/images/<path:filename>')
 def serve_static(filename):
