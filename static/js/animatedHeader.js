@@ -4,7 +4,7 @@
  * Licensed under the MIT license.
  * http://www.opensource.org/licenses/mit-license.php
  */
-var animatedHeader = (function() {
+(function() {
 
   var header = $('.navbar-fixed-top'),
   didScroll = false,
@@ -36,5 +36,3 @@ var animatedHeader = (function() {
   init();
 
 })();
-
-

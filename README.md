@@ -1,6 +1,8 @@
 # A homepage's home
 
-This is the code that powers my website.  You can find the live version at either [doomspork.com](doomspork.com) or [seancallan.com](seancallan.com).
+[![Build Status](https://travis-ci.org/doomspork/doomspork.github.io.svg)](https://travis-ci.org/doomspork/doomspork.github.io)
+
+This is the code behind [doomspork.com](doomspork.com) and [seancallan.com](seancallan.com).
 
 Made with :heart: in Vim.
 
