@@ -2,6 +2,7 @@ Flask==0.10.1
 
 # Flask Extensions
 Flask-Assets==0.10
+Flask-Script
 Envelopes==0.4
 
 # Other
