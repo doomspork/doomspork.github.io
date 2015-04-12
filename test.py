@@ -5,7 +5,10 @@
 import unittest
 from app import app
 from envelopes import Envelope
-from unittest.mock import patch
+try:
+    from unittest.mock import patch
+except:
+    from mock import patch
 
 class TestApp(unittest.TestCase):
     """ Test the index """
