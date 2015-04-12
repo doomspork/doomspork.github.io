@@ -10,7 +10,6 @@ from flask.ext.assets import Environment
 from webassets.loaders import PythonLoader
 
 app = Flask(__name__, static_folder='static')
-app.config['DEBUG'] = True
 app.config['SECRET_KEY'] = os.environ.get('SECRET_KEY', '')
 
 
