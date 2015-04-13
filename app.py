@@ -56,6 +56,12 @@ def serve_robots():
     return send_from_directory(app.static_folder, 'robots.txt')
 
 
+@app.route('/sitemap.xml')
+def serve_sitemap():
+    """ Serve sitemap.xml """
+    return send_from_directory(app.static_folder, 'sitemap.xml')
+
+
 @app.after_request
 def add_header(response):
     """
