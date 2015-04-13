@@ -42,15 +42,22 @@ class TestApp(unittest.TestCase):
         self.assertEqual(request.status_code, 404)
         request.close()
 
-    def test_static_text_file_request(self):
+    def test_robot_request(self):
         """ Test robots.txt """
         request = self.app.get('/robots.txt')
         self.assertTrue(request.data)
         self.assertEqual(request.status_code, 200)
         request.close()
 
+    def test_sitemap_request(self):
+        """ Test sitemap.xml """
+        request = self.app.get('/sitemap.xml')
+        self.assertTrue(request.data)
+        self.assertEqual(request.status_code, 200)
+        request.close()
+
     def test_resume_request(self):
-        """ Test fonts """
+        """ Test resume download """
         request = self.app.get('/files/sean.callan-resume.pdf')
         self.assertTrue(request.data)
         self.assertEqual(request.status_code, 200)
