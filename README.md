@@ -1,6 +1,6 @@
 # A homepage's home
 
-[![Build Status](https://travis-ci.org/doomspork/doomspork.github.io.svg)](https://travis-ci.org/doomspork/doomspork.github.io)
+[![Build Status](https://travis-ci.org/doomspork/seancallan.com.svg)](https://travis-ci.org/doomspork/seancallan.com)
 
 This is the code behind [doomspork.com](doomspork.com) and [seancallan.com](seancallan.com).
 
