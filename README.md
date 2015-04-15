@@ -1,6 +1,6 @@
 # A homepage's home
 
-[![Build Status](https://travis-ci.org/doomspork/seancallan.com.svg)](https://travis-ci.org/doomspork/seancallan.com)
+[![Build Status](https://travis-ci.org/doomspork/seancallan.com.svg)](https://travis-ci.org/doomspork/seancallan.com) [![Codacy Badge](https://www.codacy.com/project/badge/631f306d917a48da96786ef4303b2070)](https://www.codacy.com/app/seancallan/seancallan-com)
 
 This is the code behind [doomspork.com](doomspork.com) and [seancallan.com](seancallan.com).
 
