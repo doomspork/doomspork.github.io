@@ -34,6 +34,41 @@ h6 {
     font-weight: 700;
 }
 
+.btn-learn-more {
+  color: #fff;
+  font-weight: bold;
+  padding-top: 10px;
+}
+
+#details {
+  padding-top: 20px;
+  font-weight: 200;
+  font-size: 1.25em;
+}
+
+.oss-projects {
+  padding-bottom: 15px;
+}
+
+.oss-projects p {
+  margin: 0px;
+}
+
+.oss-projects .roles {
+  font-weight: 500;
+  font-size: 1.2em;
+}
+
+.oss-projects a {
+  font-weight: 500;
+  font-size: 1.25em;
+  color: #2d3e4f;
+}
+
+nav {
+  background-color: #2d3e4f !important;
+}
+
 .navbar-default .navbar-brand,
 .navbar-default .navbar-nav > li > a {
   color: #fff;
@@ -116,7 +151,7 @@ header .intro-text .name {
 
 header .intro-text .skills {
     font-size: 1.25em;
-    font-weight: 300;
+    font-weight: 400;
 }
 
 @media(min-width:768px) {
