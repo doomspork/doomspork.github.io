@@ -1,0 +1,5 @@
+<ul class="icons">
+  {%- for icon in site.data.core.navigation.icons -%}
+  <li><a href="{{ icon.url }}" class="icon" aria-label="{{ icon.label }}"><i class="{{ icon.fa-style }} fa-{{ icon.fa-icon }}"></i></a></li>
+  {%- endfor -%}
+</ul>

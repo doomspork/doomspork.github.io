@@ -1,0 +1,94 @@
+# Welcome to Jekyll!
+#
+# This config file is meant for settings that affect your whole blog, values
+# which you are expected to set up once and rarely edit after that. If you find
+# yourself editing this file very often, consider using Jekyll's data files
+# feature for the data you need to update frequently.
+#
+# For technical reasons, this file is *NOT* reloaded automatically when you use
+# 'bundle exec jekyll serve'. If you change this file, please restart the server process.
+
+# Site settings
+# These are used to personalize your new site. If you look in the HTML files,
+# you will see them accessed via {{ site.title }}, {{ site.email }}, and so on.
+# You can create any custom variable you would like, and they will be accessible
+# in the templates via {{ site.myvariable }}.
+title: SEAN CALLAN
+description: A trusted software engineer with a proven track record solving difficult problems with smart solutions.
+baseurl: "" # the subpath of your site, e.g. /blog
+url: "https://seancallan.com" # the base hostname & protocol for your site, e.g. http://example.com
+analytics-id: 
+
+contact:
+  email-plain: # put your email address here to disable obfuscation
+  email-key: i4WPHhdJnGCIxyTjreaLMYqu5V3gDmNbX27EBSoRFzkpA9fsOw8clKU1ZvQt06
+  email-encoded: HBSg@HBSgnSGGSg.nvO
+  page:
+    service: auto # options: auto, formspree
+    thanks: "/thanks/" # after form submitted, send visitor here
+    honeypot: true
+    recaptcha: true # note: has no effect on formspree.io free
+
+# Build settings
+plugins:
+  - kramdown
+  - uglifier
+  - jekyll-assets
+  - jekyll-archives
+  - jekyll-compose
+  - jekyll-paginate
+  - jekyll-redirect-from
+  - jekyll-seo-tag
+  - jekyll-sitemap
+
+source: src
+destination: www
+markdown: kramdown
+    
+compress_html:
+  ignore:
+    envs: ["development"]
+  clippings: []
+  comments: all
+  endings: []
+  startings: []
+  blanklines: false
+  profile: false
+
+assets:
+  sources:
+  - _assets/vendor
+  digest: true
+  compression: true
+  gzip: true
+  defaults:
+    js: { integrity: false } # true on JEKYLL_ENV=production
+    css: { integrity: false } # true on JEKYLL_ENV=production
+    img: { integrity: false } # true on JEKYLL_ENV=production
+  compress:
+    css: false
+    js: uglifier
+
+permalink: /writings/:title/
+
+jekyll-archives:
+  enabled: ['categories']
+  layout: default
+  layouts:
+    category: archive-catalog
+  permalinks:
+    category: '/writings/category/:name/'
+
+include:
+  - CNAME
+# Exclude from processing.
+# The following items will not be processed, by default. Create a custom list
+# to override the default setting.
+# exclude:
+#   - Gemfile
+#   - Gemfile.lock
+#   - node_modules
+#   - vendor/bundle/
+#   - vendor/cache/
+#   - vendor/gems/
+#   - vendor/ruby/

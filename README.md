@@ -6,4 +6,4 @@ Made with :heart: in Vim.
 
 ## License
 
-Please see [LICENSE](https://github.com/doomspork/doomspork.github.io/blob/master/LICENSE) for licensing details.
+Please see [LICENSE](https://github.com/doomspork/seancallan.com/blob/master/LICENSE) for licensing details.

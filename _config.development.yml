@@ -1,0 +1,7 @@
+host: 0.0.0.0 
+port: 4052
+url: ""
+baseurl: ""
+# assets:
+#   compression: false
+#   gzip: false

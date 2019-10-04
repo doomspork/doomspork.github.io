@@ -1,0 +1,60 @@
+---
+layout: page
+title: Experience
+description: 
+permalink: /experience/
+nav_style: hero
+intro: These amazing places are where I've built my chops. From multi-billion dollar government projects to developing products for stealth startups, it continues to be an opportunity for which I am grateful. Below you will find some of the corporations and organizations I've been a part of and a highlight of what I did while there.
+history:
+  - image: orgs/localvore.png
+    url: https://www.localvore.co/
+  - image: orgs/wombat.png
+    url: https://www.wombatsecurity.com/
+  - image: orgs/wexus.png
+    url: https://www.wexusapp.com/
+  - image: orgs/liftopia.png
+    url: https://www.liftopia.com/
+  - image: orgs/tapjoy.png
+    url: https://www.tapjoy.com/
+  - image: orgs/ibm.png
+    url: https://www.ibm.com/
+  - image: orgs/redhat.png
+    url: https://www.redhat.com/
+  - image: orgs/bah.png
+    url: https://www.boozallen.com/
+  - image: orgs/bearing_point.png
+    url: https://www.bearingpoint.com/
+  - image: orgs/dhs.png
+    url: https://www.dhs.gov/
+  - image: orgs/dod.png
+    url: https://www.dod.mil/
+  - image: orgs/us_senate.png
+    url: https://www.senate.gov/
+  - image: orgs/berkner_group.png
+    url: https://berknergroup.com/
+---
+{% include header-with-intro.html intro=page.intro %}
+<section class="section">
+  <div class="container">
+    <div class="column is-8 is-offset-2">
+      <ul class="listing">
+        {% for job in page.history %}
+          <li>
+            <div class="columns">
+              <div class="column is-4 has-text-centered">
+                {%- capture label -%}
+                {%- if job.label -%}{{ job.label }}{% else %}not-provided{%- endif -%}
+                {%- endcapture -%}
+                <a href="{{ job.url }}">{% asset '{{ job.image }}' alt="{{ label }}" class="img" %}</a>
+              </div>
+              <div class="column is-8">
+                <p class="summary">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+              </div>
+            </div>
+            
+          </li>
+        {% endfor %}  
+      </ul>
+    </div>    
+  </div>
+</section>

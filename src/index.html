@@ -1,0 +1,37 @@
+---
+layout: default
+---
+<section id="content-header" class="hero is-sean is-bold is-fullheight">
+  <div class="hero-head">
+    <div id="navbarBurger" class="navbar-burger" data-hide="hero-content" data-target="nav-overlay" data-hero="content-header">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+    {% include _navbar-overlay.html %}
+  </div>
+  <div class="hero-body" id="hero-content">
+    <div class="container rugged has-text-centered">
+      <div class="columns is-gapless">
+        {%- for link in site.data.core.navigation.top -%}
+        <div class="column {% if site.data.core.navigation.top.size > 3 %}is-3{% else %}is-4{% endif %}">
+          <a href="{{ link.url | prepend: site.baseurl | prepend: site.url }}" class="is-size-6">{{ link.caption }}</a>
+        </div>
+        {%- endfor -%}
+      </div>
+      <h1 class="title is-uppercase">Hi, I'm <span class="highlighter">Sean</span></h1>
+      <p class="subtitle has-text-white">Some people call me <span class="highlighter">spork</span> or <span class="highlighter">doomspork</span></p>
+      <p class="content has-text-left">
+        <strong><em><span style="color: #ffffff">Who am I?</span></em></strong> --I’m a passionate software engineer and adventurer who happens to be partially titanium. I’ve grown teams and built companies, transformed ideas into products, surmounted 14,000ft peaks, weathered Icelandic winter storms, and crossed America by train. Whether we're building a new product together, leveling up a team, or exploring somewhere new, I’ve got the experience and expertise to see us through safely and successfully.<br><br>
+
+        Want to grab coffee and plan our next adventure together? Get in touch!
+      </p>
+      <p class="content has-text-left">
+        <strong><em><span style="color: #ffffff">So, what's with the sporks?</span></em></strong> --I've been known by the moniker <span class="highlighter"><em>doomspork</em></span> for well over a decade. How it came to be is a long and not particularly exciting story, but the gist is: I like sporks and the idea of a comical clumsy cartoon super villian spork came to mind one day, a Spork of Doom or doomspork. The spork is a good representation of myself though: utilitarian and efficient.<br><br>
+        And yeah, I actually use sporks.
+      </p>
+      {% include icons.html %}
+    </div>
+  </div>
+</section>
+{% asset main.js %}
