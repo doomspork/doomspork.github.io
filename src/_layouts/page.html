@@ -1,0 +1,8 @@
+---
+layout: default
+---
+{% include functions/setNavStyle %}
+{% if nav_style == 'plain' %}{% include _nav.html %}{% endif %}
+{{ content }}
+{% asset main.js %}
+{%- include _footer.html -%}

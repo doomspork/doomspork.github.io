@@ -1,0 +1,25 @@
+<header id="content-header" class="hero is-dark is-hero">
+  <div class="hero-head">
+    {% include _nav.html %}
+  </div>
+  <div class="hero-body" id="hero-content">
+    <div class="column is-8 is-offset-2">
+      <h2 class="title is-3 has-text-centered">{{ page.title }}</h2>
+      {% assign words = content | number_of_words %} 
+      {% assign mins = words | divided_by:180 %}
+      {%- include functions/getCategory name=page.categories.first -%}
+      <p class="subtitle has-text-centered is-6">
+        {{ page.date | date: "%b %d, %Y" }}
+        {% if category.size %}in <a href="{{ site.jekyll-archives.permalinks.category | replace: ":name", category.name }}">{{ category.caption }}</a>{%endif%} 
+        {% if mins > 1 %} &middot; {{ mins }} min read{% endif %}
+        {%- if include.intro -%}
+          {%- capture fp -%}{{ content | first_paragraph }}{%- endcapture -%}
+          {%- capture intro -%}{{ include.intro | markdownify | strip }}{%- endcapture -%}
+          {%- if intro != fp %}
+          <div class="content has-text-centered">{{ intro }}</div> 
+          {%- endif -%}
+        {%- endif -%}
+      </p>
+    </div>
+  </div>
+</header>

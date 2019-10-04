@@ -1,0 +1,13 @@
+<header id="content-header" class="hero is-dark is-hero">
+  <div class="hero-head">
+    {% include _nav.html %}
+  </div>
+  <div class="hero-body" id="hero-content">
+    <div class="column is-8 is-offset-2">
+      <h2 class="title is-3 has-text-centered">{%- if include.title -%}{{ include.title }}{%- else -%}{{ page.title }}{% endif %}</h2>
+      {%- if include.intro -%}
+      <div class="content">{{ include.intro | markdownify }}</div>
+      {%- endif -%}
+    </div>
+  </div>
+</header>

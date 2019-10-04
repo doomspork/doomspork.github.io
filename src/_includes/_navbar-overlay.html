@@ -1,0 +1,10 @@
+<div class="navbar-overlay" id="nav-overlay">
+  <div class="navbar-kiss has-text-right">
+    <ul>
+      <li class="home"><a href="/"><span class="fv">S</span>ean<span class="fv">C</span>allan.com</a></li>
+      {%- for link in site.data.core.navigation.top -%}
+      <li><a href="{{ link.url | prepend: site.baseurl | prepend: site.url }}">{{ link.caption }}</a></li>
+      {%- endfor -%}
+    </ul>
+  </div>
+</div>

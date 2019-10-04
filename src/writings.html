@@ -1,0 +1,66 @@
+---
+layout: page
+title: Writings
+description: 
+permalink: /writings/
+nav_style: hero
+intro: |
+  Over the years I've shared my thoughts and experiences across various sites this one included. Here you'll find a collection of those writings, I encourage you to dive in.
+
+  Want me to tackle a particular topic? Let's hear it!
+
+  Something jump out to you that you want to discuss? [Get in touch](/contact/), I'd love to hear from you.
+
+  Beyond this collection of articles and blog posts, you can see more of my writing over at [Elixir School](https://elixirschool.com) where I am the primary lesson author and maintainer. Additionally, I was contracted to author the lessons for [Learnphoenix.tv](https://learnphoenix.tv).
+links:
+  - url: https://elixirschool.com/blog/til-send-after/
+    title: "TIL about `Process.send_after/4`"
+    date: 2019-02-07
+    summary: "Want to schedule something to run later? Need a reocurring task? Today we learn how!"
+  - url: https://elixirschool.com/blog/umbrellas-just-when-it-rains/
+    title: "Building web apps with Plug.Router"
+    date: 2019-01-25
+    summary: "When it comes to building a web application with Elixir many people will immediately reach for Phoenix. However, did you know `Plug.Router` is just as viable an option? Sometimes, it can be even faster."
+  - url: https://elixirschool.com/blog/umbrellas-just-when-it-rains/
+    title: "Umbrellas: only when it rains?"
+    date: 2018-10-22
+    summary: A look at umbrella applications and how they can help us write cleaner maintainable code.
+  - url: https://elixirschool.com/blog/ecto-query-composition/
+    title: Ecto query composition
+    date: 2018-07-25
+    summary: Follow along as we look at how to dynamically compose Ecto queries using pattern matching and reduction.
+  - url: https://elixirschool.com/blog/configuration-demystified/
+    title: Configuration Demystified
+    date: 2018-07-17
+    summary: We attempt to clear up some confusion around configuration by looking at the different types, the roles they play, and a different approach we could take.
+  - url: https://elixirschool.com/blog/a-look-at-16/
+    title: A look at Elixir 1.6
+    date: 2018-04-02
+    summary: Follow along as we take a peek at what’s inside the latest Elixir release. Learn more about the all new code formatter, exciting dynamic supervisors, and changes coming to your code editors that make working in Elixir even better!
+---
+{% include header-with-intro.html intro=page.intro %}
+{% assign writings = site.writings | sort: 'date' | reverse %}
+<section class="section">
+  <div class="container">
+    <div class="column is-8 is-offset-2">
+
+      <ul class="writings">
+        {% for link in writings %}
+         <li class="article">
+           <div class="top">
+             <div class="timestamp"><span class="m">{{ link.date | date: "%b" }}</span> <span class="d">{{ link.date | date: "%d" }},</span> <span class="m">{{ link.date | date: "%Y" }}</span></div>
+             <h3 class="title is-5 has-text-weight-normal"><a href="{{ link.url }}"{% if link.target %} target="{{ link.target }}"{% endif %}>{{ link.title }}</a></h3>
+           </div>
+          <div class="link">
+            {{ link.url }}
+          </div>
+          <div class="summary">
+            {{ link.summary | markdownify }}    
+          </div>
+        </li>
+        {% endfor %}
+      </ul>    
+
+    </div>
+  </div>
+</section>

@@ -1,13 +1,5 @@
 # Created by https://www.gitignore.io
 
-### Vim ###
-[._]*.s[a-w][a-z]
-[._]s[a-w][a-z]
-*.un~
-Session.vim
-.netrwhist
-*~
-
 ### OSX ###
 .DS_Store
 .AppleDouble
@@ -15,6 +7,7 @@ Session.vim
 
 # Icon must end with two \r
 Icon
+
 
 # Thumbnails
 ._*
@@ -34,79 +27,48 @@ Network Trash Folder
 Temporary Items
 .apdisk
 
-### Python ###
-# Byte-compiled / optimized / DLL files
-__pycache__/
-*.py[cod]
 
-# C extensions
-*.so
+### Windows ###
+# Windows image file caches
+Thumbs.db
+ehthumbs.db
 
-# Distribution / packaging
-.Python
-env/
-build/
-develop-eggs/
-dist/
-downloads/
-eggs/
-.eggs/
-lib/
-lib64/
-parts/
-sdist/
-var/
-*.egg-info/
-.installed.cfg
-*.egg
+# Folder config file
+Desktop.ini
 
-# PyInstaller
-#  Usually these files are written by a python script from a template
-#  before PyInstaller builds the exe, so as to inject date/other infos into it.
-*.manifest
-*.spec
+# Recycle Bin used on file shares
+$RECYCLE.BIN/
 
-# Installer logs
-pip-log.txt
-pip-delete-this-directory.txt
+# Windows Installer files
+*.cab
+*.msi
+*.msm
+*.msp
 
-# Unit test / coverage reports
-htmlcov/
-.tox/
-.coverage
-.coverage.*
-.cache
-nosetests.xml
-coverage.xml
-*,cover
+# Windows shortcuts
+*.lnk
 
-# Translations
-*.mo
-*.pot
 
-# Django stuff:
-*.log
+### Linux ###
+*~
 
-# Sphinx documentation
-docs/_build/
+# KDE directory preferences
+.directory
 
-# PyBuilder
-target/
+# Linux trash folder which might appear on any partition or disk
+.Trash-*
 
-### VirtualEnv ###
-# Virtualenv
-# http://iamzed.com/2009/05/07/a-primer-on-virtualenv/
-.Python
-[Bb]in
-[Ii]nclude
-[Ll]ib
-[Ss]cripts
-pyvenv.cfg
-pip-selfcheck.json
 
-# Webassets
-.webassets-cache/
+### Elixir ###
+/_build
+/deps
+erl_crash.dump
+*.ez
 
-# Dependency directory
-# https://www.npmjs.org/doc/misc/npm-faq.html#should-i-check-my-node_modules-folder-into-git
+### Node ###
 node_modules
+
+### Jekyll ###
+www/
+.jekyll-cache
+src/_assets/vendor

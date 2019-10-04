@@ -1,0 +1,8 @@
+{%- assign nav_style = 'plain' -%}
+{%- if page.nav_style -%}
+  {%- assign nav_style = page.nav_style -%}
+{%- endif -%}
+{%- if layout.nav_style -%}
+  {%- assign nav_style = layout.nav_style -%}
+{%- endif -%}
+<!-- nav_style: "{{nav_style}}" -->

@@ -1,0 +1,26 @@
+<nav id="navbar" class="navbar is-transparent">
+  <div class="container">
+    <div class="navbar-brand">
+      <a class="navbar-item brand" href="{{ '/' | prepend: site.baseurl | prepend: site.url }}"><h1 class="title is-5">{{ site.title }}</h1></a>
+      <div id="navbarBurger" class="navbar-burger burger" data-hide="hero-content" data-target="nav-overlay" data-hero="content-header">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div> <!-- /navbarbrand -->
+    {% include _navbar-overlay.html %}
+    <div class="navbar-menu">
+      <div class="navbar-start">
+        <!-- {{ page.layout }} -->
+      {%- for navigation in site.data.core.navigation.top -%}
+        {%- capture active -%}
+          {% if page.layout == 'post' and navigation.url == '/writings/' %}is-active{% endif %}
+          {% if page.layout == 'archive-catalog' and navigation.url == '/writings/' %}is-active{% endif %}
+          {% if page.url == navigation.url %}is-active{% endif %}
+        {%- endcapture -%}
+        <a class="navbar-item{{active | strip | prepend: " " }}" href="{{navigation.url | prepend: site.baseurl | prepend: site.url }}">{{navigation.caption}}</a>
+      {%- endfor -%}
+      </div>
+    </div>
+  </div>
+</nav>

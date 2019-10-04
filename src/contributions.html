@@ -1,0 +1,59 @@
+---
+layout: page
+title: Contributions
+description: 
+permalink: /contributions/
+nav_style: hero
+projects:
+  - title: Elixir School
+    url: https://elixirschool.com/
+    role: Author, Maintainer
+    summary: Translated into 30 languages and averaging over 10K visitors a week, Elixir School is the leading resource for learning the Elixir programming language.
+  - title: GoodCallEats
+    url: https://goodcalleats.com/
+    role: Creator
+    summary: Discover new recipes, import grandma's favorites, plan your meals, and your groceries are ready for you.
+  - title: Elixir Fountain Podcast
+    url: http://elixirfountain.com/
+    role: Co-host
+    summary: The Elixir community's source for news and updates.
+  - title: Guardian
+    url: https://github.com/ueberauth/guardian
+    role: Core Team
+    summary: The go-to authentication and JWT library in the Elixir community.
+  - title: Ueberauth
+    url: https://github.com/ueberauth/ueberauth
+    role: Core Team
+    summary: Integrate third-party OAuth into your applications with ease. Strategies for Google, Facebook, GitHub, Instagram, and many more are available today.
+  - title: Sheriff
+    url: https://github.com/doomspork/sheriff
+    role: Creator
+    summary: A simple and intuitive authorization library for Plug-based applications such as Phoenix.
+  - title: Slime-lang
+    url: https://github.com/slime-lang
+    role: Creator, Maintainer
+    summary: The Slim markup implementation and supporting libraries for Elixir.
+  - title: Elixir-Companies.com
+    url: https://elixir-companies.com/
+    role: Creator
+    summary: A collection of companies that currently use Elixir in production.
+---
+{% include header-with-intro.html %}
+<section class="section">
+  <div class="container">
+    <div class="column is-8 is-offset-2">
+      <ul class="listing">
+        {% for project in page.projects %}
+          <li>
+            <div><h3 class="title is-5 has-text-weight-normal"><a href="{{ project.url }}" target="_blank">{{ project.title }}</a></h3></div>
+            <div><span class="sm">{{ project.role }}</span><br><span class="summary">{{ project.summary }}</span></div>
+          </li>
+        {% endfor %}  
+      </ul>
+      <hr>
+      <p class="content has-text-centered"><a class="button is-large is-dark is-outlined has-text-weight-semibold" href="https://github.com/doomspork" target="_blank">
+        <span class="icon is-medium"><i class="fab fa-github"></i></span> <span>See more on Github</span>
+      </a></p>
+    </div>    
+  </div>
+</section>

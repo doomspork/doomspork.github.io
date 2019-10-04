@@ -1,0 +1,399 @@
+@import url('https://fonts.googleapis.com/css?family=Maven+Pro:400,500,700,900&display=swap');
+$dark: #063147;
+$family-sans-serif: 'Maven Pro', sans-serif;
+$body-size: 18px;
+$title-weight: 700;
+$subtitle-weight: 400;
+$text: $dark;
+$primary: #4C987E;
+// $link: lighten($dark, 20%);
+// $link-hover: $dark;
+$link: $primary;
+$link: darken($primary, 8%);
+$link-hover: lighten($dark, 20%);
+
+@import 'bulma-lite'; // just the things we need
+@import 'libs/mixins';
+@import "font-awesome-sprockets";
+@import "font-awesome";
+@keyframes slideInDown {
+  from {
+    transform: translate3d(0, -100%, 0);
+    visibility: visible;
+  }
+
+  to {
+    transform: translate3d(0, 0, 0);
+  }
+}
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+html {
+  &.is-disabled {
+    overflow: hidden;
+    body {
+      overflow: hidden;
+      position: relative;
+    }
+  }
+  body {
+    &.home { 
+      //background-color: #063147; // best performance  
+      //@include grad-svg;
+    }
+    
+    @include font-smoothing(on); // for older browsers without defaults
+    @include until($desktop) {
+      font-size: 14px !important;
+    }
+    
+    .is-hidden {
+      display: none;
+    }
+    .highlighter {
+      color: #ED9819;
+    }
+    .is-hero {
+      //@include grad-svg;
+      background-color: $dark;
+      .hero-body {
+        .content, .subtitle {
+          color: rgba(255,255,255, 0.65);
+          letter-spacing: -0.021875rem;
+          line-height: 1.25em;
+
+          a {
+            color: #fff;
+            &:hover {
+              text-decoration: underline;
+            }
+          }
+        }
+      }
+    }
+    a.brand {
+      .title {
+        color: #ED9819 !important;  
+        &:hover {
+          color: darken(#ED9819, 10%);
+        }
+      }
+    }
+    .icons {
+      li {
+        display: inline-block;
+        vertical-align: middle;
+        position: relative;
+        z-index: 1;
+        margin: .5em;
+      }
+      .icon {
+        border-radius: 100%;
+        font-size: 1.5em;
+        width: 2em;
+        height: 2em;
+
+        border: solid 2px #4C987E;
+        color: $dark;
+        &:hover {
+          border: solid 2px #4C987E;
+          color: lighten($dark, 15%);
+        }
+      }
+    }
+    .is-sean { // full-height hero home page
+      //@include hero-bg(#063147);
+      background-color: #063147;
+      a {
+        color: #fff;  
+        @include from($desktop) {
+          color: rgba(255,255,255, 0.8);
+        }
+        &:hover {
+          color: #fff;
+        }
+      }
+      .content {
+        color: rgba(255,255,255, 0.65);
+        //letter-spacing: -0.021875rem;
+        line-height: 1.25em;
+        @include from($desktop){
+          letter-spacing: -0.025em;
+        }
+      }
+      .hero-body {
+        @include until($desktop){
+          align-items: flex-start;
+          animation-fill-mode: both;
+          animation-duration: .75s;
+          animation-name: fadeIn;
+        }
+      }
+      .title {
+        color: #fff;
+        font-size: 3.75em;
+        line-height: 1;
+        letter-spacing: 0;
+        
+        @include from($desktop) {
+          margin-top: 3rem;
+          font-size: 4.125em;
+          //font-size: 5.75em;
+        }
+      }
+      .subtitle {
+        color: rgba(255,255,255, 0.5);
+        font-size: 0.9rem;
+        line-height: 0.75;
+        margin-bottom: 1.5rem;
+        @include from($desktop) {
+          margin-bottom: 3rem;
+          font-size: 1.25rem;
+        }
+      }
+      .icons {
+        .icon {
+          color: rgba(255,255,255,0.75);
+          &:hover {
+            color: #fff;
+            border-color: #fff;
+          }
+        }
+      }
+      .rugged {
+        @include from($desktop) {
+          width: 35rem;
+          min-width: 35rem;
+          max-width: 35rem;
+          padding: 0px;
+        }
+        .columns {
+          @include until($desktop) {
+            display: none;
+          }
+          a {
+            font-weight: 700;
+          }
+        }
+      }
+    }
+    ul.listing {
+      li {
+        padding: 0 1.5em 1.5em 1.5em;
+        margin-bottom: 1em;
+        border-bottom: 1px solid $grey-lighter;
+
+        &:last-child {
+          border: 0;
+          margin: 0;
+          padding: 0 1.5em 0 1.5em;
+        }
+        .sm {
+          font-size: 0.75em;
+        }
+        .summary {
+          font-size: 0.9em;
+        }
+        .img {
+          @include mobile {
+            width: 75%;
+            height: 75%;            
+          }
+        }
+      }
+    }
+    ul.writings {
+      .article {
+        padding: 0 1em 1.5em 1em;
+        @include from($desktop) {
+          padding: 0 1.5em 1.5em 1.5em;
+          &:last-child {
+            padding: 0 1.5em 0 1.5em;
+          }
+        }
+        margin-bottom: 1em;
+        border-bottom: 1px solid $grey-lighter;
+        &:last-child {
+          margin: 0;
+          border: 0;
+          padding: 0 1.5em 0 1.5em;
+        }
+        .top {
+          @include from($desktop){
+            display: flex;  
+          }
+          .timestamp {
+            display: inline;
+            padding-right: .5em;
+          }
+        }
+        .link {
+          margin: .75em 0;
+          line-height: 1;
+          color: lighten($dark, 16%);
+          @include from($desktop){
+            font-size: .75em;
+          }
+        }
+        .summary {
+          @include from($desktop){
+            font-size: 0.9em;
+          }
+          
+        }
+      }
+    }
+    article {
+      &.preview {   
+        .header {
+          margin-bottom: 1rem;
+        }  
+        .content {
+          padding-top: 1rem;
+        }
+      }
+    }    
+    .posts {
+      .post-link {
+        .post-date {
+          font-size: 0.8em;
+          color: $grey-lighter;
+        }        
+      }
+    }
+    .navbar-burger {
+      color: #4C987E;
+      z-index: 2;
+      @include until($desktop) { // this must be a mistake...
+        //margin-right: 1rem;
+      }
+      &.is-active {
+        span {
+          height: 3px;
+        }
+      }
+      span {
+        height: 2px;
+      }          
+    }
+    .navbar-overlay { // maybe rename this? 
+      //@include grad-svg;
+      display: none;
+      position: absolute;
+      top: 0px;
+      left: 0px;
+      
+      min-height: 100vh;
+      max-height: 100vh;
+      height: 100vh;
+      
+      min-width: 100vw;
+      max-width: 100vw;
+      width: 100vw;
+      
+      padding: 3em;
+      z-index: 1;
+      &.is-active {
+        display: flex;
+        align-items: center;
+        animation-fill-mode: both;
+        animation-duration:   .25s;
+        animation-name: slideInDown;  
+      }
+      .navbar-kiss {
+        a {
+          color: #fff;  
+          @include from($desktop) {
+            color: rgba(255,255,255, 0.8);
+          }
+          &:hover {
+            color: #fff;
+          }
+        }
+        min-width: 100%;
+        li {
+          &.home {
+            padding-bottom: 3em;
+            a {
+              //font-variant: small-caps;
+              text-transform: uppercase;
+              letter-spacing: 0.09em;
+              font-size: 1.225em;
+              font-weight: 400;
+              .fv { // a more subtle font-variant
+                font-size: 1.1em;
+                &:last-child {
+                  padding-left: 4px;
+                }
+              }
+            }
+          }          
+          a {
+            font-size: 2em;
+            font-weight: 700;
+          }          
+        }
+      }
+    }
+    .navbar-start > .navbar-item {
+      @include from($desktop) {
+        font-weight: 700;
+        &.is-active {
+          padding: 5px 0px 2px 0px;
+          margin: 0px 12px;
+          border-bottom: 3px solid #4C987E;  
+        }        
+      }
+    }
+    footer {
+      .title { 
+        &:not(:last-child) {
+          padding-bottom: 0.45rem;
+          margin-bottom: 0.45rem;
+        }
+        .is-active {
+          &:after {
+            content: " ← ";
+            color: $link;
+            font-size: 0.8em;
+          }
+        }
+      }
+      ul{
+        margin-bottom: 0.9rem;
+        
+        &.is-underlined {
+          li {
+            padding-left: 8px;
+            
+            &:not(:last-child) {
+              margin-bottom: 0.25rem;
+              padding-bottom: 0.25rem;
+              border-bottom: 1px solid $grey-lighter;
+            }
+            
+            a {
+              &:hover {
+                margin-left: -8px;
+                padding-left: 5px;
+                border-left: 3px solid $info;                
+              }
+              &.is-active {
+                margin-left: -8px;
+                padding-left: 5px;
+                border-left: 3px solid $link;
+              }   
+            }
+          }
+        }
+      }
+    }
+  }
+}
