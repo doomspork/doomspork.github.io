@@ -7,31 +7,38 @@ nav_style: hero
 intro: These amazing places are where I've built my chops. From multi-billion dollar government projects to developing products for stealth startups, it continues to be an opportunity for which I am grateful. Below you will find some of the corporations and organizations I've been a part of and a highlight of what I did while there.
 history:
   - image: orgs/localvore.png
+    label: Localvore
     url: https://www.localvore.co/
+    description: |
+      Originally served as a consultant to guide for Localvore's Elixir adoption. I was hired full-time as the technical lead to ensure on-time product launch. I consistently delivered features on time to meet milestones put forth by leadership and investment team. Worked directly with company founders to re-prioritize product roadmap enabling team to hit key product and growth milestones. Led the charge on reducing codebase complexity and reliance on external services, resulting in a significant monthly savings of time and money.
   - image: orgs/wombat.png
+    label: Wombat Security
     url: https://www.wombatsecurity.com/
+    description: |
+      I was recruited by Wombat Security to assist in the merger of their systems and teams with newly acquired ThreatSim. During this time I established processes and best practices to improve code quality with measurable reduction in bugs. Additionally I oversaw the onboarding and training a group of Turing School graduates based in Denver.
+
+      Wombat Security was acquired by Proofpoint Security in 2018.
   - image: orgs/wexus.png
     url: https://www.wexusapp.com/
   - image: orgs/liftopia.png
+    label: Liftopia
     url: https://www.liftopia.com/
+    description: |
+      Hired to provide technical expertise for platform modernization initiatives including the transition to a service-oriented architecture Instrumental in improving code quality and test coverage while establishing team wide best practices. Responsible for recruiting and hiring key engineers, doubling team size. Designed and developed a PCI compliant payment system with multiple currencies and gateway redundancy.
   - image: orgs/tapjoy.png
     url: https://www.tapjoy.com/
-  - image: orgs/ibm.png
-    url: https://www.ibm.com/
   - image: orgs/redhat.png
     url: https://www.redhat.com/
   - image: orgs/bah.png
     url: https://www.boozallen.com/
   - image: orgs/bearing_point.png
     url: https://www.bearingpoint.com/
-  - image: orgs/dhs.png
-    url: https://www.dhs.gov/
-  - image: orgs/dod.png
-    url: https://www.dod.mil/
-  - image: orgs/us_senate.png
-    url: https://www.senate.gov/
   - image: orgs/berkner_group.png
+    label: Berkner Group
     url: https://berknergroup.com/
+    description: |
+      The Berkner Group offers consultative, strategic approach to executive and technical search. As part of my work I am responsible for reviewing and interviewing potential candidates before they are placed. 
+
 ---
 {% include header-with-intro.html intro=page.intro %}
 <section class="section">
@@ -50,7 +57,10 @@ history:
           {% endcapture %}
           {% capture jobsummary %}
             <div class="column is-8">
-              <p class="summary">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+              {% capture desc %}
+              {% if job.description %}{{ job.description }}{% else %}A description to come{%- endif -%}
+              {% endcapture %}
+              <p class="summary{% if orientation == 'right'%} has-text-right{% endif %}">{{desc}}</p>
             </div>
           {% endcapture %}
           <li>
