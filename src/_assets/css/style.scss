@@ -58,7 +58,12 @@ html {
       display: none;
     }
     .highlighter {
-      color: #ED9819;
+      color: #ED9819 !important;
+    }
+    a.highlighter {
+      &:hover {
+        color: lighten(#ED9819, 12%) !important;
+      }
     }
     .is-hero {
       //@include grad-svg;
@@ -167,7 +172,7 @@ html {
           }
         }
       }
-      .rugged {
+      .container {
         @include from($desktop) {
           width: 35rem;
           min-width: 35rem;
