@@ -1,11 +1,13 @@
 navigation:
   top:
-    - caption: Writings 
+    - caption: Home
+      url: "/"
+    - caption: Writings
       url: "/writings/"
+    # - caption: Experience
+    #   url: "/experience/"
     # - caption: Endorsements
     #   url: "/endorsements/"
-    - caption: Experience
-      url: "/experience/"
     - caption: Contributions
       url: "/contributions/"
   footer:
@@ -27,7 +29,7 @@ navigation:
     - fa-icon: github
       fa-style: fab
       url: https://github.com/doomspork
-      label: Go to my Github 
+      label: Go to my Github
     - fa-icon: envelope
       fa-style: fas
       url: "/contact/"
